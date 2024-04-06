@@ -1,11 +1,12 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import ExamplePage from "./pages/\bExamplePage";
+import ExamplePage from "./pages/ExamplePage";
 import LoginPage from "./pages/LoginPage";
 import GridPage from "./pages/GridPage";
 import ImageDetailPage from "./pages/ImageDetailPage";
 import MyPage from "./pages/MyPage";
 import MyPageEditPage from "./pages/MyPageEdit";
+import FileUploadPage from "./pages/FileUploadPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/profile/edit" element={<MyPageEditPage />} />
       <Route path="/ex" element={<GridPage />} />
       <Route path="/detail/:index" element={<ImageDetailPage />} />
+      <Route path="/file" element={<FileUploadPage />} />
     </Routes>
   );
 }
