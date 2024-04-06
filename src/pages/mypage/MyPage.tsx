@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 
 const MyPage = () => {
+
   const username = "username";
-  const [timeDifference, setTimeDifference] = useState(0);
+  const [timeDifference, setTimeDifference] = useState<number>(0);
   const targetTime = new Date("2024-04-06T20:00:00").getTime();
   const nav = useNavigate();
 

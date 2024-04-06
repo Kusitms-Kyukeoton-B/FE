@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { colors } from "../styles/colors";
 
 interface ValuesProps {
   title: string;
@@ -26,7 +27,7 @@ const InfoUpload = () => {
 
   // 키워드
   const [keywords, setKeywords] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState<string>("");
   // 키워드 input이 변경될 때마다 업데이트
   const keywordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
@@ -143,7 +144,7 @@ const Contents = styled.div<{ focus: string; opt: string }>`
   flex-direction: column;
   flex-wrap: nowrap;
   width: 100%;
-  color: ${(props) => (props.focus === props.opt ? "pink" : "white")};
+  color: ${(props) => (props.focus === props.opt ? colors.main : "white")};
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -156,7 +157,7 @@ const InputContent = styled.input`
   margin: 0px 20px;
   align-items: center;
   flex-shrink: 0;
-  border-radius: 10px;
+  border-radius: 30px;
   color: black;
   font-size: 0.875rem;
   font-style: normal;
@@ -166,7 +167,7 @@ const InputContent = styled.input`
   background: white;
   &:focus {
     outline: none;
-    border: 1px solid pink;
+    border: 1px solid ${colors.main};
   }
 `;
 const KeywordRegion = styled.ul`
@@ -185,7 +186,7 @@ const Keyword = styled.li`
   align-items: center;
   gap: 0.1875rem;
   border-radius: 6.25rem;
-  background: pink;
+  background: ${colors.main};
   margin-right: 0.5rem;
 `;
 const Title = styled.div`
