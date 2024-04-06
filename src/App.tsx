@@ -7,6 +7,7 @@ import ImageDetailPage from "./pages/ImageDetailPage";
 import MyPage from "./pages/MyPage";
 import MyPageEditPage from "./pages/MyPageEdit";
 import FileUploadPage from "./pages/FileUploadPage";
+import PointPage from "./pages/PointPages";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/profile" element={<MyPage />} />
       <Route path="/profile/edit" element={<MyPageEditPage />} />
       <Route path="/ex" element={<GridPage />} />
+      <Route path="/point" element={<PointPage />} />
       <Route path="/detail/:index" element={<ImageDetailPage />} />
       <Route path="/file" element={<FileUploadPage />} />
     </Routes>

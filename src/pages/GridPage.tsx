@@ -4,6 +4,7 @@ import axios from "axios";
 import { Layout } from "../styles/styles";
 import { useNavigate } from "react-router-dom";
 import ImageGrid from "../components/GridImages";
+import Navigation from "../components/Navigation";
 
 interface ImageData {
   src: string;
@@ -76,6 +77,7 @@ const GridPage = () => {
         <ImageGrid images={images} onImageClick={handleImageClick} />
         <div ref={loader} />
       </ScrollableDiv>
+      <Navigation />
     </Layout>
   );
 };
