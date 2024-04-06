@@ -1,6 +1,5 @@
 import "./App.css";
 import { Route, Routes, useLocation } from "react-router-dom";
-import ExamplePage from "./pages/ExamplePage";
 import LoginPage from "./pages/LoginPage";
 import GridPage from "./pages/home/GridPage";
 import ImageDetailPage from "./pages/home/ImageDetailPage";
@@ -12,11 +11,11 @@ import CommuintyPage from "./pages/community/CommunityPage";
 import NoPharmingPage from "./pages/mypage/NoPharmingPage";
 import MainCharacterPage from "./pages/charactor/MainCharacterPage";
 import { AnimatePresence } from "framer-motion";
+import QuestionDetailPage from "./pages/community/QuesDetailPage";
 
 function App() {
   const location = useLocation();
   return (
-    
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/login" element={<LoginPage />} />
@@ -29,6 +28,7 @@ function App() {
         <Route path="/community" element={<CommuintyPage />} />
         <Route path="/nopharming" element={<NoPharmingPage />} />
         <Route path="/dophami" element={<MainCharacterPage />} />
+        <Route path="/question/detail" element={<QuestionDetailPage />} />
       </Routes>
     </AnimatePresence>
   );
