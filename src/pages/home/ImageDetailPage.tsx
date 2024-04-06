@@ -57,7 +57,7 @@ const ImageDetailPage = () => {
         </ImageWrapper>
         <CommentList />
         <CommentInputContainer>
-          <CommentInput placeholder="댓글을 입력하세요..." />
+          <CommentInput placeholder="댓글 추가..." />
           <SubmitButton>등록</SubmitButton>
         </CommentInputContainer>
       </DetailContainer>
@@ -228,8 +228,7 @@ const CommentInputContainer = styled.div`
 const CommentInput = styled.input`
   flex: 1;
   padding: 8px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+  border: none;
   outline: none;
 `;
 
