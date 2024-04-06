@@ -1,5 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { Layout } from "../styles/styles";
+
+const LoginPage: React.FC = () => {
+  return (
+    <Layout>
+      <Container>
+        <Input type="text" placeholder="ID" />
+        <Input type="password" placeholder="Password" />
+        <Button>로그인</Button>
+        <div>회원가입</div>
+      </Container>
+    </Layout>
+  );
+};
+
+export default LoginPage;
 
 const Container = styled.div`
   display: flex;
@@ -31,16 +47,3 @@ const Button = styled.button`
     background-color: #0056b3;
   }
 `;
-
-const LoginPage: React.FC = () => {
-  return (
-    <Container>
-      <Input type="text" placeholder="ID" />
-      <Input type="password" placeholder="Password" />
-      <Button>Login</Button>
-      <Button>Register</Button>
-    </Container>
-  );
-};
-
-export default LoginPage;
