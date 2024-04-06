@@ -170,32 +170,32 @@ const TopSub = styled.div`
   line-height: normal;
 `;
 
-const ImageContainer = styled.img`
-  /* display: flex;
-  width: 290px;
-  height: 457px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  border-radius: 8px;
-  margin-top: 17px;
-  background: url(<path-to-image>) lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 28.7px 0px rgba(0, 0, 0, 0.25); */
+// const ImageContainer = styled.img`
+//   /* display: flex;
+//   width: 290px;
+//   height: 457px;
+//   flex-direction: column;
+//   justify-content: flex-end;
+//   align-items: center;
+//   gap: 10px;
+//   flex-shrink: 0;
+//   border-radius: 8px;
+//   margin-top: 17px;
+//   background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+//   box-shadow: 0px 4px 28.7px 0px rgba(0, 0, 0, 0.25); */
 
-  display: flex;
-  width: 290px;
-  height: 457px;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  position: relative;
-  border-radius: 8px;
-  margin-top: 17px;
-  background: url(<path-to-image>) center lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 28.7px 0px rgba(0, 0, 0, 0.25);
-`;
+//   display: flex;
+//   width: 290px;
+//   height: 457px;
+//   flex-direction: column;
+//   justify-content: flex-end;
+//   align-items: center;
+//   position: relative;
+//   border-radius: 8px;
+//   margin-top: 17px;
+//   background: url(<path-to-image>) center lightgray 50% / cover no-repeat;
+//   box-shadow: 0px 4px 28.7px 0px rgba(0, 0, 0, 0.25);
+// `;
 
 const ImageWrapper = styled.div`
   position: relative;

@@ -60,7 +60,7 @@ const Navigation = () => {
         >
           <Icon src={navId == 2 ? character : characterGray} />
           <NavName on={navId} id={2}>
-            캐릭터
+            파밍룸
           </NavName>
         </IconContainer>
         <IconContainer
