@@ -2,6 +2,8 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Layout } from "../styles/styles";
+import { useNavigate } from "react-router-dom";
+import ImageGrid from "../components/GridImages";
 
 interface ImageData {
   src: string;
@@ -19,8 +21,13 @@ interface apiData {
 }
 
 const GridPage = () => {
+  const nav = useNavigate();
   const [images, setImages] = useState<ImageData[]>([]);
   const [page, setPage] = useState<number>(1);
+
+  const handleImageClick = (index: number) => {
+    nav(`/detail/${encodeURIComponent(index)}`);
+  };
 
   const fetchImages = async () => {
     const response = await axios.get(
@@ -52,17 +59,7 @@ const GridPage = () => {
   return (
     <Layout>
       <ScrollableDiv onScroll={handleScroll}>
-        <MasonryLayout>
-          {images.map((image, index) => (
-            <ImageContainer key={index}>
-              <img
-                src={image.src}
-                alt={image.alt}
-                style={{ width: "100%", height: "auto" }}
-              />
-            </ImageContainer>
-          ))}
-        </MasonryLayout>
+        <ImageGrid images={images} onImageClick={handleImageClick} />
       </ScrollableDiv>
     </Layout>
   );
@@ -70,6 +67,9 @@ const GridPage = () => {
 
 const ScrollableDiv = styled.div`
   height: 100vh;
+  width: 100vw;
+  padding-left: 10px;
+  padding-right: 10px;
   overflow: auto;
   // 웹킷 기반 브라우저용 스크롤바 숨기기
   &::-webkit-scrollbar {
@@ -81,23 +81,6 @@ const ScrollableDiv = styled.div`
 
   // IE 및 Edge용 스크롤바 숨기기
   -ms-overflow-style: none;
-`;
-
-const MasonryLayout = styled.div`
-  column-count: 2;
-  column-gap: 15px;
-  width: 100%;
-`;
-
-const ImageContainer = styled.div`
-  break-inside: avoid;
-  display: inline-block;
-
-  img {
-    border-radius: 10px;
-  }
-
-  width: 100%;
 `;
 
 export default GridPage;
