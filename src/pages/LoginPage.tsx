@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Layout } from "../styles/styles";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100vw;
   background-color: #f7f7f7;
 `;
 
@@ -34,12 +36,14 @@ const Button = styled.button`
 
 const LoginPage: React.FC = () => {
   return (
-    <Container>
-      <Input type="text" placeholder="ID" />
-      <Input type="password" placeholder="Password" />
-      <Button>Login</Button>
-      <Button>Register</Button>
-    </Container>
+    <Layout>
+      <Container>
+        <Input type="text" placeholder="ID" />
+        <Input type="password" placeholder="Password" />
+        <Button>로그인</Button>
+        <div>회원가입</div>
+      </Container>
+    </Layout>
   );
 };
 
