@@ -1,17 +1,12 @@
 import { atom, RecoilRoot } from "recoil";
-import { recoilPersist } from "recoil-persist";
+// import { recoilPersist } from "recoil-persist";
 
-const { persistAtom } = recoilPersist();
+// const { persistAtom } = recoilPersist();
 
-// State 설정 방식
-// export const isLoggedInState = atom({
-//   key: "isLoggedIn",
-//   default: false,
-//   effects: [persistAtom],
-// });
-
-// page에서 전역값 가져오는 방식
-// const [isLoggedIn, setIsLoggedIn] = useRecoilState(isLoggedInState);
+export const navState = atom({
+  key: "navigation",
+  default: 0,
+});
 
 export default function RecoilContextProvider({
   children,
