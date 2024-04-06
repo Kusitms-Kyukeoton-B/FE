@@ -7,6 +7,7 @@ import MyPage from "./pages/mypage/MyPage";
 import MyPageEditPage from "./pages/mypage/MyPageEdit";
 import FileUploadPage from "./pages/home/FileUploadPage";
 import PointPage from "./pages/mypage/PointPages";
+import CommuintyPage from "./pages/community/CommunityPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/profile/edit" element={<MyPageEditPage />} />
       <Route path="/" element={<GridPage />} />
       <Route path="/point" element={<PointPage />} />
+      <Route path="/community" element={<CommuintyPage />} />
       <Route path="/detail/:index" element={<ImageDetailPage />} />
       <Route path="/file" element={<FileUploadPage />} />
     </Routes>

@@ -22,7 +22,7 @@ const Navigation = () => {
         <IconContainer
           onClick={() => {
             setNavId(1);
-            navigate("/file");
+            navigate("/community");
           }}
         >
           <Icon onFocus={navId == 1} />
