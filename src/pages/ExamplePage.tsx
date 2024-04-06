@@ -1,5 +1,7 @@
+import { Layout } from "../styles/styles";
+
 const ExamplePage = () => {
-  return <div>hello</div>;
+  return <Layout>hello</Layout>;
 };
 
 export default ExamplePage;
