@@ -1,20 +1,46 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Layout } from "../../styles/styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import sampleimg from "../../assets/sample_1.png";
 import likeicon from "../../assets/heart.svg";
 import bookmark from "../../assets/bookmark.svg";
 import shareicon from "../../assets/share.svg";
 import blankicon from "../../assets/blank_icon.png";
 import CommentList from "../../components/Comments";
+import axios from "axios";
 
 const ImageDetailPage = () => {
-  //const { index } = useParams();
+  const { index } = useParams();
   const [follow, setFollow] = useState(false);
-  const [likeCount, setLikeCount] = useState(456);
-  const [bookmarkCount, setBookmarkCount] = useState(123);
-  const [shareCount, setShareCount] = useState(789);
+  const likeCount = 456;
+  const bookmarkCount = 123;
+  const shareCount = 789;
+  const [image, setImage] = useState("");
+
+  useEffect(() => {
+    if (index != null) {
+      fetchImages();
+      console.log(image);
+    }
+  }, []);
+
+  const fetchImages = async () => {
+    try {
+      const response = await axios.get(
+        `https://www.kyukeoton.store/post/file/${index}`
+      ); // 동적 URL 사용
+
+      if (response.data && response.data.isSuccess) {
+        const newImage = response.data.data.image; // API 응답에서 이미지 URL 추출
+        setImage(newImage); // 이미지 상태 업데이트
+      } else {
+        console.error("Failed to fetch the image.");
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
 
   const changeFollow = () => {
     setFollow(!follow);
@@ -38,7 +64,7 @@ const ImageDetailPage = () => {
           </TopTextContainer>
         </TopContainer>
         <ImageWrapper>
-          <StyledImage src={sampleimg} alt="Sample" />
+          <StyledImage src={image} alt="Sample" />
           <Overlay>
             <IconWithCount>
               <img src={bookmark} alt="Bookmark" />
