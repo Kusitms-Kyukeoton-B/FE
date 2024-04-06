@@ -8,6 +8,7 @@ import Navigation from "../../components/Navigation";
 import FilterButtonComponent from "../../components/FilteringButton";
 import plusicon from "../../assets/plus_icon.svg";
 import searchicon from "../../assets/search_icon.svg";
+import logo from "../../assets/main_logo.png";
 
 interface ImageData {
   src: string;
@@ -83,20 +84,17 @@ const GridPage = () => {
     <Layout>
       <Container>
         <TopContainer>
-          <TopLeft />
-          <TopRight>
-            <img src={plusicon} />
-          </TopRight>
+          <LogoImage src={logo} />
+          <SearchBarContainer>
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <SearchIcon src={searchicon} alt="Search" />
+          </SearchBarContainer>
         </TopContainer>
-        <SearchBarContainer>
-          <SearchInput
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <SearchIcon src={searchicon} alt="Search" />
-        </SearchBarContainer>
         <FilterButtonComponent />
         <ScrollableDiv onScroll={handleScroll}>
           <ImageGrid images={images} onImageClick={handleImageClick} />
@@ -107,6 +105,32 @@ const GridPage = () => {
     </Layout>
   );
 };
+
+const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+`;
+
+const LogoImage = styled.img`
+  flex: 1;
+  width: 85px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 34px;
+`;
+
+const SearchBarContainer = styled.div`
+  flex: 9;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: #d9d9d9;
+`;
 
 const ScrollableDiv = styled.div`
   height: 100vh;
@@ -124,17 +148,6 @@ const ScrollableDiv = styled.div`
 
   // IE 및 Edge용 스크롤바 숨기기
   -ms-overflow-style: none;
-`;
-
-const SearchBarContainer = styled.div`
-  display: flex;
-  align-items: center;
-  width: 353px;
-  height: 46px;
-  margin-left: 18px;
-  border-radius: 30px;
-  background: #d9d9d9;
-  margin-top: 10px;
 `;
 
 const SearchInput = styled.input`
@@ -163,31 +176,6 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-`;
-
-const TopContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-`;
-
-const TopLeft = styled.div`
-  width: 81px;
-  height: 40px;
-  border-radius: 30px;
-  background: #6e59ef;
-  margin-left: 20px;
-`;
-
-const TopRight = styled.div`
-  width: 38px;
-  display: flex;
-  height: 38px;
-  border-radius: 50%;
-  background: #6e59ef;
-  justify-content: center;
-  align-items: center;
-  margin-right: 20px;
 `;
 
 export default GridPage;
