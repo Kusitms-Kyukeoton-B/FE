@@ -8,6 +8,11 @@ export const navState = atom({
   default: 0,
 });
 
+export const dophamingState = atom({
+  key: "dophamine",
+  default: 30,
+});
+
 export default function RecoilContextProvider({
   children,
 }: {
