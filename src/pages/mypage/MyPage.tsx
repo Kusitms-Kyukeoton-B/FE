@@ -22,7 +22,13 @@ const MyPage = () => {
           <UserName>{username}</UserName>
         </ProfileArea>
         <StatusList>
-          <ListItem>노파밍 챌린지</ListItem>
+          <ListItem
+            onClick={() => {
+              nav("/mypage/nopharming");
+            }}
+          >
+            노파밍 챌린지
+          </ListItem>
           <ListItem2>나의 기록</ListItem2>
           <ListItem>나의 친구</ListItem>
           <ListItem2>포인트샵</ListItem2>
