@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { colors } from "../styles/colors";
 
 const FileUpload = () => {
-  const [imageSrc, setImageSrc] = useState("");
+  const [imageSrc, setImageSrc] = useState<string>("");
 
   const encodeFileToBase64 = (fileBlob: Blob): Promise<void> => {
     const reader = new FileReader();
@@ -34,7 +35,7 @@ const FileUpload = () => {
       )}
 
       <label htmlFor="file-upload">
-        <Button>파일을 업로드해주세요</Button>
+        <Button>업로드</Button>
       </label>
       <FileUploader
         type="file"
@@ -53,11 +54,11 @@ const FileUpload = () => {
 export default FileUpload;
 
 const FileUploader = styled.input`
-  //display: none;
+  display: none;
 `;
 const Button = styled.div`
   margin: 20px;
-  background-color: pink;
+  background-color: ${colors.main};
 `;
 const PreviewImage = styled.img`
   width: auto;
@@ -68,7 +69,7 @@ const PreviewVideo = styled.video`
   height: 200px;
 `;
 const Preview = styled.div`
-  width: 200px;
+  width: 100%;
   height: 200px;
   background-color: beige;
 `;
