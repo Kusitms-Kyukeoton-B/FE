@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Layout } from "../../styles/styles";
 import Navigation from "../../components/Navigation";
-import CameraIcon from "../assets/camera_icon.svg";
+import CameraIcon from "../../assets/camera_icon.svg";
 import { useNavigate } from "react-router-dom";
-import Backarrow from "../assets/back_arrow.svg";
+import Backarrow from "../../assets/back_arrow.svg";
 
 const MyPageEditPage = () => {
   const nav = useNavigate();
