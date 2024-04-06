@@ -1,9 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import { colors } from "../styles/colors";
 
 const NoPharmingBanner = () => {
-  const [score, setScore] = useState<number>(87);
+  const score = 87;
   const averageScore = 60;
 
   const scoreGap = score - averageScore;
