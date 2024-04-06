@@ -75,10 +75,14 @@ const Button = styled.div`
 const PreviewImage = styled.img`
   width: auto;
   height: 200px;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `;
 const PreviewVideo = styled.video`
   width: auto;
   height: 200px;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `;
 const Preview = styled.div`
   width: 100%;
