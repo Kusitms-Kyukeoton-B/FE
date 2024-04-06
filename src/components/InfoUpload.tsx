@@ -110,7 +110,7 @@ const InfoUpload = () => {
             <Keyword key={index}>
               {keyword}
               <img
-                src="src/assets/react.svg"
+                src="@assets/react.svg"
                 alt="close"
                 width={22}
                 height={22}

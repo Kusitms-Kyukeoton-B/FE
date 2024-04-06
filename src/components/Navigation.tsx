@@ -3,6 +3,15 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { navState } from "../context/recoilContext";
 import { colors } from "../styles/colors";
+import home from "@assets/nav/Home.svg";
+import homeGray from "@assets/nav/HomeGray.svg";
+import comment from "@assets/nav/Comment.svg";
+import commentGray from "@assets/nav/CommentGray.svg";
+import character from "@assets/nav/Character.svg";
+import characterGray from "@assets/nav/CharacterGray.svg";
+import plus from "@assets/nav/Plus.svg";
+import user from "@assets/nav/User.svg";
+import userGray from "@assets/nav/UserGray.svg";
 
 const Navigation = () => {
   const navigate = useNavigate();
@@ -17,12 +26,10 @@ const Navigation = () => {
             navigate("/");
           }}
         >
-          <Icon
-            src={
-              navId == 0 ? "/assets/nav/Home.svg" : "/assets/nav/HomeGray.svg"
-            }
-          />
-          <NavName onFocus={navId == 0}>홈</NavName>
+          <Icon src={navId == 0 ? home : homeGray} />
+          <NavName on={navId} id={0}>
+            홈
+          </NavName>
         </IconContainer>
         <IconContainer
           onClick={() => {
@@ -30,18 +37,19 @@ const Navigation = () => {
             navigate("/file");
           }}
         >
-          <Icon
-            src={
-              navId == 1
-                ? "/assets/nav/Comment.svg"
-                : "/assets/nav/CommentGray.svg"
-            }
-          />
-          <NavName onFocus={navId == 1}>커뮤니티</NavName>
+          <Icon src={navId == 1 ? comment : commentGray} />
+          <NavName on={navId} id={1}>
+            커뮤니티
+          </NavName>
         </IconContainer>
-        <IconContainer>
+        <IconContainer
+          onClick={() => {
+            setNavId(4);
+            navigate("/file");
+          }}
+        >
           <Circle>
-            <Plus src="/assets/nav/Plus.svg" />
+            <Plus src={plus} />
           </Circle>
         </IconContainer>
         <IconContainer
@@ -50,14 +58,10 @@ const Navigation = () => {
             navigate("/dophami");
           }}
         >
-          <Icon
-            src={
-              navId == 2
-                ? "/assets/nav/Character.svg"
-                : "/assets/nav/CharacterGray.svg"
-            }
-          />
-          <NavName onFocus={navId == 2}>캐릭터</NavName>
+          <Icon src={navId == 2 ? character : characterGray} />
+          <NavName on={navId} id={2}>
+            캐릭터
+          </NavName>
         </IconContainer>
         <IconContainer
           onClick={() => {
@@ -65,12 +69,10 @@ const Navigation = () => {
             navigate("/profile");
           }}
         >
-          <Icon
-            src={
-              navId == 3 ? "/assets/nav/User.svg" : "/assets/nav/UserGray.svg"
-            }
-          />
-          <NavName onFocus={navId == 3}>마이페이지</NavName>
+          <Icon src={navId == 3 ? user : userGray} />
+          <NavName on={navId} id={3}>
+            마이페이지
+          </NavName>
         </IconContainer>
       </Container>
     </>
@@ -102,8 +104,8 @@ const Icon = styled.img`
   width: 24px;
   height: 24px;
 `;
-const NavName = styled.div<{ onFocus: boolean }>`
-  color: ${(props) => (props.onFocus ? colors.main : "#a0a0a0")};
+const NavName = styled.div<{ on: number; id: number }>`
+  color: ${(props) => (props.on == props.id ? colors.main : "#a0a0a0")};
   font-family: "Noto Sans KR";
   font-size: 12px;
   font-style: normal;
