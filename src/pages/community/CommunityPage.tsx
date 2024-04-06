@@ -5,6 +5,7 @@ import logo from "../../assets/main_logo.png";
 import searchicon from "../../assets/search_icon.svg";
 import Question from "../../components/Question";
 import ImageGallery from "../../components/ImageGallery";
+import { useNavigate } from "react-router-dom";
 
 interface BalanceDataItem {
   id: number;
@@ -41,6 +42,11 @@ const BalanceData: BalanceDataItem[] = [
 ];
 
 const CommuintyPage = () => {
+  const nav = useNavigate();
+  const goToDetail = () => {
+    nav("/question/detail");
+  };
+
   return (
     <Layout>
       <Container>
@@ -59,7 +65,7 @@ const CommuintyPage = () => {
           <ImageGallery />
         </SubContainer>
         <Dopaming>도파밍 토크</Dopaming>
-        <DopamingContainer>
+        <DopamingContainer onClick={goToDetail}>
           {BalanceData.map((item) => (
             <Question
               key={item.id}
