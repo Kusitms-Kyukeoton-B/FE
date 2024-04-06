@@ -5,6 +5,10 @@ import { Layout } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
 import ImageGrid from "../../components/GridImages";
 import Navigation from "../../components/Navigation";
+import FilterButtonComponent from "../../components/FilteringButton";
+import plusicon from "../../assets/plus_icon.svg";
+import searchicon from "../../assets/search_icon.svg";
+import logo from "../../assets/main_logo.png";
 
 interface ImageData {
   src: string;
@@ -26,6 +30,11 @@ const GridPage = () => {
   const [images, setImages] = useState<ImageData[]>([]);
   const [page, setPage] = useState<number>(1);
   const loader = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
 
   const handleImageClick = (index: number) => {
     nav(`/detail/${encodeURIComponent(index)}`);
@@ -73,18 +82,59 @@ const GridPage = () => {
 
   return (
     <Layout>
-      <ScrollableDiv onScroll={handleScroll}>
-        <ImageGrid images={images} onImageClick={handleImageClick} />
-        <div ref={loader} />
-      </ScrollableDiv>
+      <Container>
+        <TopContainer>
+          <LogoImage src={logo} />
+          <SearchBarContainer>
+            <SearchInput
+              type="text"
+              placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <SearchIcon src={searchicon} alt="Search" />
+          </SearchBarContainer>
+        </TopContainer>
+        <FilterButtonComponent />
+        <ScrollableDiv onScroll={handleScroll}>
+          <ImageGrid images={images} onImageClick={handleImageClick} />
+          <div ref={loader} />
+        </ScrollableDiv>
+      </Container>
       <Navigation />
     </Layout>
   );
 };
 
+const TopContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+`;
+
+const LogoImage = styled.img`
+  flex: 1;
+  width: 85px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 34px;
+`;
+
+const SearchBarContainer = styled.div`
+  flex: 9;
+  display: flex;
+  align-items: center;
+  height: 46px;
+  border-radius: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: #d9d9d9;
+`;
+
 const ScrollableDiv = styled.div`
   height: 100vh;
-  width: 100vw;
+  width: 90%;
   padding-left: 18px;
   padding-right: 18px;
   overflow: auto;
@@ -98,6 +148,34 @@ const ScrollableDiv = styled.div`
 
   // IE 및 Edge용 스크롤바 숨기기
   -ms-overflow-style: none;
+`;
+
+const SearchInput = styled.input`
+  flex-grow: 1;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 36px; // Make room for the icon inside the search bar
+  border-radius: 30px;
+  border: none;
+  background: transparent;
+  outline: none;
+
+  &::placeholder {
+    color: #a8a8a8;
+  }
+`;
+
+const SearchIcon = styled.img`
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  cursor: pointer;
+`;
+
+const Container = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
 `;
 
 export default GridPage;

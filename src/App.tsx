@@ -8,12 +8,12 @@ import MyPage from "./pages/mypage/MyPage";
 import MyPageEditPage from "./pages/mypage/MyPageEdit";
 import FileUploadPage from "./pages/home/FileUploadPage";
 import PointPage from "./pages/mypage/PointPages";
+import CommuintyPage from "./pages/community/CommunityPage";
 import NoPharmingPage from "./pages/mypage/NoPharmingPage";
 import MainCharacterPage from "./pages/charactor/MainCharacterPage";
 
 function App() {
   return (
-    <Routes>
       <Route path="/" element={<ExamplePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/profile" element={<MyPage />} />
