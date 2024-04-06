@@ -1,6 +1,8 @@
 import Lottie from "lottie-react";
 import dophami30 from "../../assets/lottie/dophami30.json";
 import dophami50 from "../../assets/lottie/dophami50.json";
+import dophami75 from "../../assets/lottie/dophami75.json";
+import dophami100 from "../../assets/lottie/dophami100.json";
 import { Layout } from "../../styles/styles";
 import Navigation from "../../components/Navigation";
 import { useRecoilValue } from "recoil";
@@ -32,7 +34,7 @@ const data = [
   {
     subTitle: "도파민 충천 중",
     Title: "우리와 함께 도파민을 채워요!",
-    animateData: dophami30,
+    animateData: dophami75,
     color: "#FBC25C",
     deepColor: "#BD8828",
     shadow: "#BD8828",
@@ -42,7 +44,7 @@ const data = [
   {
     subTitle: "도파민이 충분한 당신",
     Title: "나도파밍과 함께 휴식을...",
-    animateData: dophami30,
+    animateData: dophami100,
     color: "#E15D5D",
     deepColor: "#AA3232",
     shadow: "#AA3232",

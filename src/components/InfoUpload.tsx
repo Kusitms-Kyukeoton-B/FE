@@ -109,11 +109,8 @@ const InfoUpload = () => {
           {keywords.map((keyword, index) => (
             <Keyword key={index}>
               {keyword}
-              <img
-                src="@assets/react.svg"
-                alt="close"
-                width={22}
-                height={22}
+              <div
+                style={{ width: 20, height: 20, backgroundColor: "gray" }}
                 onClick={() => removeKeyword(index)}
               />
             </Keyword>
@@ -149,6 +146,7 @@ const Contents = styled.div<{ focus: string; opt: string }>`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-bottom: 20px;
 `;
 const InputContent = styled.input`
   display: flex;
@@ -163,8 +161,8 @@ const InputContent = styled.input`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  border: 1px solid black;
-  background: white;
+  border: none;
+  background: #dedede;
   &:focus {
     outline: none;
     border: 1px solid ${colors.main};
@@ -194,4 +192,5 @@ const Title = styled.div`
   padding-left: 30px;
   font-size: 1rem;
   color: black;
+  margin-bottom: 5px;
 `;

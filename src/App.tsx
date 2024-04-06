@@ -12,6 +12,7 @@ import MainCharacterPage from "./pages/charactor/MainCharacterPage";
 import LetterPage from "./pages/mypage/LetterPage";
 import MeditationPage from "./pages/mypage/Meditation";
 import QuestionDetailPage from "./pages/community/QuesDetailPage";
+import CommuintyPage from "./pages/community/CommunityPage";
 
 function App() {
   return (
