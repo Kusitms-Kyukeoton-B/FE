@@ -8,15 +8,18 @@ interface ImageData {
 
 interface ImageGridProps {
   images: ImageData[];
-  onImageClick: (index: number) => void;
+  onImageClick: (index: string) => void;
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images, onImageClick }) => {
   const mediaType = "image";
   return (
     <MasonryLayout>
-      {images.map((image, index) => (
-        <ImageContainer key={index} onClick={() => onImageClick(index)}>
+      {images.map((image) => (
+        <ImageContainer
+          key={image.caption}
+          onClick={() => onImageClick(image.caption)}
+        >
           {mediaType === "image" ? (
             <img
               src={image.src}

@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 import ImageGrid from "../../components/GridImages";
 import Navigation from "../../components/Navigation";
 import FilterButtonComponent from "../../components/FilteringButton";
-import plusicon from "../../assets/plus_icon.svg";
 import searchicon from "../../assets/search_icon.svg";
 import logo from "../../assets/main_logo.png";
 
@@ -17,18 +16,14 @@ interface ImageData {
 }
 
 interface apiData {
-  id: string;
-  author: string;
-  width: number;
-  height: number;
-  url: string;
-  download_url: string;
+  postId: number;
+  title: string;
+  image: string;
 }
 
 const GridPage = () => {
   const nav = useNavigate();
   const [images, setImages] = useState<ImageData[]>([]);
-  const [page, setPage] = useState<number>(1);
   const loader = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -36,22 +31,20 @@ const GridPage = () => {
     setSearchTerm(e.target.value);
   };
 
-  const handleImageClick = (index: number) => {
+  const handleImageClick = (index: string) => {
     nav(`/detail/${encodeURIComponent(index)}`);
   };
 
   const fetchImages = async () => {
-    const response = await axios.get(
-      `https://picsum.photos/v2/list?page=${page}&limit=50`
-    );
-    const newImages = response.data.map((img: apiData) => ({
-      src: img.download_url,
-      caption: img.author,
-      alt: `Photograph by ${img.author}`,
+    const response = await axios.get(`https://www.kyukeoton.store/post/file`);
+    console.log(response);
+    const newImages = response.data.data.postList.map((img: apiData) => ({
+      src: img.image,
+      caption: img.postId,
+      alt: img.title,
     }));
 
-    setImages((prevImages) => [...prevImages, ...newImages]);
-    setPage((prevPage) => prevPage + 1);
+    setImages([...newImages]);
   };
 
   useEffect(() => {
