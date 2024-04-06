@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Layout } from "../../styles/styles";
 import { useEffect, useState } from "react";
-import sampleimg from "../../assets/sample_1.png";
 import likeicon from "../../assets/heart.svg";
 import bookmark from "../../assets/bookmark.svg";
 import shareicon from "../../assets/share.svg";
