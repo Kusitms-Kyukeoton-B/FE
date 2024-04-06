@@ -1,15 +1,38 @@
 import styled from "styled-components";
 import blankicon from "../assets/blank_icon.png";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-const comments = [
-  { id: 1, user: "User1", content: "첫 번째 댓글입니다!" },
-  { id: 2, user: "User2", content: "두 번째 댓글이네요!" },
-  { id: 3, user: "User3", content: "댓글을 남겨봅니다." },
-  { id: 4, user: "User3", content: "댓글을 남겨봅니다." },
-  { id: 5, user: "User3", content: "댓글을 남겨봅니다." },
-];
+interface Comment {
+  id: number;
+  content: string;
+}
+
+// const comments = [
+//   { id: 1, user: "User1", content: "첫 번째 댓글입니다!" },
+//   { id: 2, user: "User2", content: "두 번째 댓글이네요!" },
+//   { id: 3, user: "User3", content: "댓글을 남겨봅니다." },
+//   { id: 4, user: "User3", content: "댓글을 남겨봅니다." },
+//   { id: 5, user: "User3", content: "댓글을 남겨봅니다." },
+// ];
 
 const CommentList = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  const fetchComments = async () => {
+    const response = await axios.get(
+      `https://www.kyukeoton.store/post/file/1/comments`
+    );
+    console.log(response);
+    const newComments = response.data.data.commentResponseList;
+
+    setComments(newComments);
+  };
+
+  useEffect(() => {
+    fetchComments();
+  }, []);
+
   return (
     <CommentListContainer>
       <CommentTitle>댓글</CommentTitle>
@@ -19,7 +42,7 @@ const CommentList = () => {
             <img src={blankicon} />
           </CommentCircle>
           <CommentColumn>
-            <Username>{comment.user}</Username>
+            <Username>익명</Username>
             <Content>{comment.content}</Content>
           </CommentColumn>
         </Comment>
