@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const NoPharmingContents2 = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Title>과도한 숏폼에 중독된 당신을 위해</Title>
       <SubTitle>글을 읽어보는 건 어때요 ?</SubTitle>
       <ScrollContents>
-        <Card>
+        <Card onClick={() => navigate("/mypage/nopharming/letter")}>
           <CardTitle>세줄 요약 레터 읽기</CardTitle>
           <CardDescription>도파민 중독자 29명이 했어요 !</CardDescription>
         </Card>

@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const NoPharmingContents = () => {
+  const navigate = useNavigate();
   return (
     <Container>
       <Title>디지털 세상에 중독된 당신을 위해</Title>
       <SubTitle>잠시 눈을 쉬어줘요!</SubTitle>
       <ScrollContents>
-        <Card>
+        <Card onClick={() => navigate("/mypage/nopharming/meditation")}>
           <CardTitle>5분 명상</CardTitle>
           <CardDescription>도파민 중독자 10명이 했어요 !</CardDescription>
         </Card>

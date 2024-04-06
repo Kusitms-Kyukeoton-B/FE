@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { Layout } from "../../styles/styles";
-import Navigation from "../../components/Navigation";
-import Backarrow from "../../assets/back_arrow.svg";
 import { useNavigate } from "react-router-dom";
-import NoPharmingBanner from "../../components/NoPharmingBanner";
-import NoPharmingContents from "../../components/NoPharmingContents";
-import NoPharmingContents2 from "../../components/NoPharmingContents2";
+import Backarrow from "../../assets/back_arrow.svg";
+import Navigation from "../../components/Navigation";
+import line from "../../assets/templine.png";
 
-const NoPharmingPage = () => {
+const MeditationPage = () => {
   const navigate = useNavigate();
 
   const goToBack = () => {
@@ -18,23 +16,23 @@ const NoPharmingPage = () => {
     <Layout>
       <Header>
         <BackIcon src={Backarrow} onClick={goToBack} />
-        잠시 노파밍
+        5분 명상
       </Header>
       <Container>
-        <NoPharmingBanner />
-        <NoPharmingContents />
-        <NoPharmingContents2 />
-        <Navigation />
+        <img src={line} />
       </Container>
+      <Navigation />
     </Layout>
   );
 };
 
-export default NoPharmingPage;
+export default MeditationPage;
 
 const Container = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
+  justify-content: center;
   flex-direction: column;
 `;
 const Header = styled.div`
@@ -50,7 +48,6 @@ const Header = styled.div`
   font-style: normal;
   font-weight: 700;
 `;
-
 const BackIcon = styled.img`
   position: absolute;
   width: 20px;
