@@ -11,4 +11,15 @@ export default defineConfig({
       "@assets": "/src/assets",
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://www.kyukeoton.store/",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+        secure: false,
+        ws: true,
+      },
+    },
+  },
 });
