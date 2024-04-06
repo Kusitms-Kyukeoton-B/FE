@@ -2,12 +2,12 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import ExamplePage from "./pages/ExamplePage";
 import LoginPage from "./pages/LoginPage";
-import GridPage from "./pages/GridPage";
-import ImageDetailPage from "./pages/ImageDetailPage";
-import MyPage from "./pages/MyPage";
-import MyPageEditPage from "./pages/MyPageEdit";
-import FileUploadPage from "./pages/FileUploadPage";
-import PointPage from "./pages/PointPages";
+import GridPage from "./pages/home/GridPage";
+import ImageDetailPage from "./pages/home/ImageDetailPage";
+import MyPage from "./pages/mypage/MyPage";
+import MyPageEditPage from "./pages/mypage/MyPageEdit";
+import FileUploadPage from "./pages/home/FileUploadPage";
+import PointPage from "./pages/mypage/PointPages";
 
 function App() {
   return (

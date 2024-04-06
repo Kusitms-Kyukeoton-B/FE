@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Layout } from "../styles/styles";
+import { Layout } from "../../styles/styles";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navigation from "../components/Navigation";
+import Navigation from "../../components/Navigation";
 
 const MyPage = () => {
   const [username, setusername] = useState("username");

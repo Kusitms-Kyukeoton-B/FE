@@ -40,7 +40,7 @@ const Navigation = () => {
         <IconContainer
           onClick={() => {
             setNavId(3);
-            navigate("/");
+            navigate("/profile");
           }}
         >
           <Icon onFocus={navId == 3} />

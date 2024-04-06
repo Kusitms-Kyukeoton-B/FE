@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { Layout } from "../styles/styles";
+import { Layout } from "../../styles/styles";
 import { useNavigate } from "react-router-dom";
-import ImageGrid from "../components/GridImages";
-import Navigation from "../components/Navigation";
+import ImageGrid from "../../components/GridImages";
+import Navigation from "../../components/Navigation";
 
 interface ImageData {
   src: string;
