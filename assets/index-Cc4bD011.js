@@ -423,7 +423,7 @@ Error generating stack: `+c.message+`
   &:hover {
     background-color: #0056b3;
   }
-`,MyPage=()=>{const e="도파밍B",i=useNavigate(),s=()=>{i("/profile/edit")};return jsxRuntimeExports.jsxs(Layout,{children:[jsxRuntimeExports.jsxs(PageContainer,{children:[jsxRuntimeExports.jsxs(ProfileArea,{onClick:s,children:[jsxRuntimeExports.jsx(Avatar,{children:jsxRuntimeExports.jsx("img",{src:blankicon})}),jsxRuntimeExports.jsx(UserName,{children:e})]}),jsxRuntimeExports.jsxs(StatusList,{children:[jsxRuntimeExports.jsx(ListItem,{children:"노파밍 챌린지"}),jsxRuntimeExports.jsx(ListItem2,{children:"나의 기록"}),jsxRuntimeExports.jsx(ListItem,{children:"나의 친구"}),jsxRuntimeExports.jsx(ListItem2,{children:"포인트샵"})]})]}),jsxRuntimeExports.jsx(Navigation,{})]})},PageContainer=ut.div`
+`,MyPage=()=>{const e="도파밍B",i=useNavigate(),s=()=>{i("/profile/edit")};return jsxRuntimeExports.jsxs(Layout,{children:[jsxRuntimeExports.jsxs(PageContainer,{children:[jsxRuntimeExports.jsxs(ProfileArea,{onClick:s,children:[jsxRuntimeExports.jsx(Avatar,{children:jsxRuntimeExports.jsx("img",{src:blankicon})}),jsxRuntimeExports.jsx(UserName,{children:e})]}),jsxRuntimeExports.jsxs(StatusList,{children:[jsxRuntimeExports.jsx(ListItem,{onClick:()=>{i("/mypage/nopharming")},children:"노파밍 챌린지"}),jsxRuntimeExports.jsx(ListItem2,{children:"나의 기록"}),jsxRuntimeExports.jsx(ListItem,{children:"나의 친구"}),jsxRuntimeExports.jsx(ListItem2,{children:"포인트샵"})]})]}),jsxRuntimeExports.jsx(Navigation,{})]})},PageContainer=ut.div`
   display: flex;
   width: 100vw;
   flex-direction: column;
@@ -616,9 +616,13 @@ Error generating stack: `+c.message+`
 `,PreviewImage=ut.img`
   width: auto;
   height: 200px;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `,PreviewVideo=ut.video`
   width: auto;
   height: 200px;
+  margin-top: 70px;
+  margin-bottom: 20px;
 `,Preview=ut.div`
   width: 100%;
   height: 200px;
