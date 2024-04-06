@@ -14,6 +14,7 @@ import MainCharacterPage from "./pages/charactor/MainCharacterPage";
 
 function App() {
   return (
+    <Routes>
       <Route path="/" element={<ExamplePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/profile" element={<MyPage />} />
@@ -24,6 +25,7 @@ function App() {
       <Route path="/file" element={<FileUploadPage />} />
       <Route path="/nopharming" element={<NoPharmingPage />} />
       <Route path="/dophami" element={<MainCharacterPage />} />
+      <Route path="/community" element={<CommuintyPage />} />
     </Routes>
   );
 }
