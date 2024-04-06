@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Navigation from "../components/Navigation";
-import { Layout } from "../styles/styles";
-import PointItem from "../components/PointItem";
+import Navigation from "../../components/Navigation";
+import { Layout } from "../../styles/styles";
+import PointItem from "../../components/PointItem";
 
 type PointItemType = {
   imageSrc: string;

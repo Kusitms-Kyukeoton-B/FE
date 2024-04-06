@@ -1,12 +1,21 @@
 import styled from "styled-components";
-import { Layout } from "../styles/styles";
-import Navigation from "../components/Navigation";
+import { Layout } from "../../styles/styles";
+import Navigation from "../../components/Navigation";
 import CameraIcon from "../assets/camera_icon.svg";
+import { useNavigate } from "react-router-dom";
+import Backarrow from "../assets/back_arrow.svg";
 
 const MyPageEditPage = () => {
+  const nav = useNavigate();
+
+  const goToBack = () => {
+    nav(-1);
+  };
+
   return (
     <Layout>
       <Container>
+        <BackIcon src={Backarrow} onClick={goToBack} />
         <PageName>마이페이지</PageName>
         <ProfileContainer>
           <ProfileImage>
@@ -71,13 +80,19 @@ const Username = styled.h1`
 `;
 
 const Line = styled.hr`
-  width: 100%;
+  width: 20%;
   border: 0.5px solid #cccccc;
   margin-bottom: 20px;
 `;
 
 const Info = styled.div`
   width: 100%;
+  margin-bottom: 10px;
+`;
+
+const BackIcon = styled.img`
+  width: 30px;
+  height: 30px;
   margin-bottom: 10px;
 `;
 
