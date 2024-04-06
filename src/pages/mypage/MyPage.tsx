@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 
 const MyPage = () => {
-  const [username, setusername] = useState<string>("username");
+
+  const username = "username";
   const [timeDifference, setTimeDifference] = useState<number>(0);
   const targetTime = new Date("2024-04-06T20:00:00").getTime();
   const nav = useNavigate();
@@ -27,7 +28,7 @@ const MyPage = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formatTime = (milliseconds) => {
+  const formatTime = (milliseconds: number) => {
     if (milliseconds < 0) {
       const elapsedMilliseconds = Math.abs(milliseconds); // 음수를 양수로 변환
       const elapsedSeconds = Math.floor((elapsedMilliseconds / 1000) % 60);
